@@ -1,0 +1,49 @@
+.weather_table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 320px;
+  width: 280px;
+  margin: 5% 5% 1% 2%;
+  padding: 10px;
+  box-shadow: 0 3px 20px #40128b;
+  border-radius: 20px;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 3px 15px white;
+  }
+
+  h1 {
+    font-size: 50px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    transition: all 0.1s;
+
+    &:hover {
+      color: antiquewhite;
+    }
+  }
+}
