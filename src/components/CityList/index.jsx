@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchCitiesData } from "../ApiData/data";
+import { fetchCitiesData } from "../../api/data";
 import { Link } from "react-router-dom";
 import "animate.css/animate.min.css";
 import "./styled.scss";
@@ -23,25 +23,31 @@ function CityList() {
   return (
     <div className="animate__animated animate__fadeIn weather_table">
       <ul>
-        {cities.map((city) => (
-          <li key={city.id}>
-            <div>
-              <h1>{city.name}</h1>
-            </div>
+        {cities.map((city) => {
+          const { id, name, main, wind } = city;
+          const { temp, humidity, pressure } = main;
+          const { speed: windSpeed } = wind;
 
-            <div>
-              <p>Температура: {Math.trunc(city.main.temp)}°C</p>
-              <p>Влажность: {city.main.humidity}%</p>
-              <p>Скорость ветра: {city.wind.speed}</p>
-              <p>Давление: {city.main.pressure}</p>
-            </div>
-            <div>
-              <Link to={`/city/${cities.indexOf(city)}`} key={city.id}>
+          return (
+            <li key={id}>
+              <h1>{name}</h1>
+
+              <div>
+                <p>Температура: {Math.trunc(temp)}°C</p>
+
+                <p>Влажность: {humidity}%</p>
+
+                <p>Скорость ветра: {windSpeed}</p>
+
+                <p>Давление: {pressure}</p>
+              </div>
+
+              <Link to={`/city/${cities.indexOf(city)}`} key={id}>
                 Детальнее
               </Link>
-            </div>
-          </li>
-        ))}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

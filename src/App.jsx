@@ -4,14 +4,13 @@ import CityDetails from "./components/CityDetails";
 
 function App() {
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route path="/city/:index" element={<CityDetails />} />
-          <Route path="/weather-app-react" element={<CityList />} />
-        </Routes>
-      </Router>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/city/:index" element={<CityDetails />} />
+
+        <Route path="/weather-app-react" element={<CityList />} />
+      </Routes>
+    </Router>
   );
 }
 

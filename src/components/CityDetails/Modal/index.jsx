@@ -3,7 +3,6 @@ import "animate.css/animate.min.css";
 import "./styled.scss";
 
 function Modal({ content, onClose, isModalOpen }) {
-  console.log(isModalOpen);
   return (
     <div
       className={`animate__animated ${
@@ -14,16 +13,17 @@ function Modal({ content, onClose, isModalOpen }) {
         <span className="close" onClick={onClose}>
           &times;
         </span>
+
         <p>{content}</p>
       </div>
     </div>
   );
 }
 
-export default Modal;
-
 Modal.propTypes = {
   content: PropTypes.node.isRequired,
   onClose: PropTypes.func.isRequired,
   isModalOpen: PropTypes.func.isRequired,
 };
+
+export default Modal;
